@@ -33,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: maven-artifact
-        path: ${{ github.workspace }}/tabby-path-finder.jar
+        path: /home/runner/work/tabby-path-finder/tabby-path-finder.jar
