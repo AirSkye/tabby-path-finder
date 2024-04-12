@@ -31,7 +31,7 @@ jobs:
         curl -L "https://github.com/AirSkye/tabby-path-finder/archive/refs/tags/${{ github.event.inputs.tag }}.zip" -o source.zip
         unzip source.zip
         ls -l
-        cd source
+        cd tabby-path-finder-${{ github.event.inputs.tag }}
         mvn clean package -DskipTest -DaltDeploymentRepository
 
     - name: Upload Artifact
