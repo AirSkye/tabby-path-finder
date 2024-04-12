@@ -27,12 +27,7 @@ jobs:
         settings-path: ${{ github.workspace }}
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: mvn clean package -DskipTest
 
     - name: Create Release
       id: create_release
@@ -51,6 +46,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./target/tabby-path-finder.jar  # 根据实际路径调整
+        asset_path: ./tabby-path-finder.jar  # 根据实际路径调整
         asset_name: tabby-path-finder.jar
         asset_content_type: application/java-archive
