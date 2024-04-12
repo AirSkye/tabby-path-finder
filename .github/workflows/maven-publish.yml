@@ -27,7 +27,7 @@ jobs:
         settings-path: ${{ github.workspace }}
 
     - name: Build with Maven
-      run: mvn clean package -DskipTest
+      run: mvn clean package -DskipTest -DaltDeploymentRepository
 
     - name: Create Release
       id: create_release
