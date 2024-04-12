@@ -27,15 +27,10 @@ jobs:
         settings-path: ${{ github.workspace }}
 
     - name: Build with Maven
-      run: |
-        curl -L "https://github.com/AirSkye/tabby-path-finder/archive/refs/tags/${{ github.event.inputs.tag }}.zip" -o source.zip
-        unzip source.zip
-        ls -l
-        cd tabby-path-finder-${{ github.event.inputs.tag }}
-        mvn clean package -DskipTest -DaltDeploymentRepository
+      run: mvn clean package -DskipTest -DaltDeploymentRepository
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: maven-artifact
-        path: ${{ github.workspace }}/tabby-path-finder-${{ github.event.inputs.tag }}/target/*.jar
+        path: ${{ github.workspace }}/tabby-path-finder.jar
