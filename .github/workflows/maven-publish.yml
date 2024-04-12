@@ -34,4 +34,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: maven-artifact
-        path: ${{ github.workspace }}/tabby-path-finder-${{ github.event.inputs.tag }}/target/*.jar
+        path: ${{ github.workspace }}/target/*.jar
